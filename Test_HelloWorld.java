@@ -7,7 +7,7 @@ public class Test_HelloWorld {
 		System.out.println ("Eva a réussi a modifier le fichier");
 		
 		while (true) {
-			System.out.println("Vive Shop'INT !");
+			System.out.println("Simon est un crétin !");
 		}
 
 	}

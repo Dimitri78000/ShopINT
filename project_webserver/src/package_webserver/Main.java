@@ -1,4 +1,5 @@
 package package_webserver;
+import package_shopping.*;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -7,8 +8,8 @@ public class Main {
 
 	public static void main(String[] args) throws Exception 
 	{
-		System.out.println("Hello World!");
-		
+		System.out.println("Hello World Server!");
+		Magasin Carrefour = new Magasin();
 		
 	    FilmDB db = new FilmDB();
 	    

@@ -17,6 +17,8 @@ int ymax;
 		rayons.add(new Rayon("riz~~~~~",0,0,6,0));
 		rayons.add(new Rayon("tomate~~",9,1,9,2));
 		rayons.add(new Rayon("viande~~",5,5,9,5));
+		rayons.add(new Rayon("chewingu",8,8,8,8));
+		rayons.add(new Rayon("epices~~",7,7,8,7));
 	}
 	
 	/*public int[][] createDistanceMatrix() { //mise en place de la matrice avec des -1 pour tous les rayons

@@ -1,4 +1,5 @@
 package package_webserver;
+import package_shopping.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,6 +32,7 @@ public class Server {
     out.println("");
     out.println("<html><body>");
 
+    
     System.out.println("Request " + location + " => " + tokens.length + " tokens");
     
     try {

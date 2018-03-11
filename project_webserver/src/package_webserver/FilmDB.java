@@ -34,7 +34,7 @@ public class FilmDB {
   }
   
   public String asHTML() {
-    String res = "Liste des films :<ul>";
+    String res = " <br/> <br/> Liste des films :<ul>";
     
     for(Film film: db.keySet()) {
       res += "<li>" + film.asHTML() + "</li>";

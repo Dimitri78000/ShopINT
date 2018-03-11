@@ -25,20 +25,22 @@ public class Rayon { //definie les attributs du rayons
             System.out.println("erreur de coordonées");
 		}
 		else{
-			if(x0==x1) {//rayon en ligne
+			if ((x0==x1) && (y0==y1)){ //rayon d'une case
+				res[x0][y0]="|" + produit +"|";
+			}
+			else if(x0==x1) {//rayon en ligne
 					res[x0][y0]="|" + produit +"¤";
 					for(int y=y0+1; y<y1;y++) {
 						res[x0][y]="¤========¤";
 					}
 					res[x0][y1]="¤========|";
 			}
-			if(y0==y1) {//rayon en colonne
-				res[x0][y0]="|--------|";
-				res[x0+1][y0]="|" + produit + "|";
-				for(int x=x0+2;x<x1;x++) {
-					res[x][y0]="|::::::::|";
+			else if(y0==y1) {//rayon en colonne
+				res[x0][y0]="|" + produit + "|";
+				for(int x=x0+1;x<x1;x++) {
+					res[x][y0]="|========|";
 				}
-				res[x1-1][y0]="|--------|";
+				res[x1][y0]="|--------|";
 			}
 		}
 	}

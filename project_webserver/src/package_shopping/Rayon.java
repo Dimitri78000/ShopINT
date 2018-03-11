@@ -1,9 +1,10 @@
 package package_shopping;
 
 public class Rayon { //definie les attributs du rayons
+	
+	String produit;
 	private int x0; private int y0; //case du début du rayon
 	private int x1; private int y1;//case de la fin du rayon
-	String produit;
 	
 	
 	public Rayon(String nom, int x0, int y0, int x1, int y1) {
@@ -13,6 +14,7 @@ public class Rayon { //definie les attributs du rayons
 		this.x1=x1;
 		this.y1=y1;
 	}
+	
 
 	/*public void addInDistanceMatrix(int[][] res) { //met -1 dans la matrice pour dire que le rayons est occupé par des aliments
 		for(int y=y0; y<y1; y++)
@@ -24,19 +26,19 @@ public class Rayon { //definie les attributs du rayons
 		}
 		else{
 			if(x0==x1) {//rayon en ligne
-				res[x0][y0]="|" + produit;
-				for(int y=y0+1; y<y1-1;y++) {
-					res[x0][y]=" ";
-				}
-				res[x0][y1-1]="|";
+					res[x0][y0]="|" + produit +"¤";
+					for(int y=y0+1; y<y1;y++) {
+						res[x0][y]="¤========¤";
+					}
+					res[x0][y1]="¤========|";
 			}
 			if(y0==y1) {//rayon en colonne
-				res[x0][y0]="_";
-				res[x0+1][y0]=produit;
+				res[x0][y0]="|--------|";
+				res[x0+1][y0]="|" + produit + "|";
 				for(int x=x0+2;x<x1;x++) {
-					res[x][y0]=" ";
+					res[x][y0]="|::::::::|";
 				}
-				res[x1-1][y0]="_";
+				res[x1-1][y0]="|--------|";
 			}
 		}
 	}

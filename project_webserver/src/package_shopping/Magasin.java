@@ -12,9 +12,11 @@ int ymax;
 		rayons = new LinkedList<Rayon>();
 		xmax=10;
 		ymax=10;
-		rayons.add(new Rayon("yaourt", 3, 3, 3, 9));
-		rayons.add(new Rayon("fruits", 1,2,1,5 ));
-		rayons.add(new Rayon("riz",0,0,6,0));
+		rayons.add(new Rayon("yaourt~~", 3, 3, 3, 9)); // Les noms des rayons doivent être de 8 caractères
+		rayons.add(new Rayon("fruits~~", 1,2,1,5 ));
+		rayons.add(new Rayon("riz~~~~~",0,0,6,0));
+		rayons.add(new Rayon("tomate~~",9,1,9,2));
+		rayons.add(new Rayon("viande~~",5,5,9,5));
 	}
 	
 	/*public int[][] createDistanceMatrix() { //mise en place de la matrice avec des -1 pour tous les rayons
@@ -54,7 +56,7 @@ int ymax;
 		String[][] res=createDistanceMatrix();
 		for (int j=0; j<ymax;j++) {
 			if(res[i][j]==null) {
-				res[i][j]=".";
+				res[i][j]="°........°";
 			}
 			System.out.print(res[i][j]);
 		}

@@ -31,7 +31,7 @@ public class Main {
 	    db.lookup("Black Sheep", 2008).addRecommendation("A quand Black Goat ?");
 		
 		
-		int port = 4124;
+		int port = 4123;
 	    ServerSocket server = new ServerSocket(port);
 	    while(true) {
 	        try {

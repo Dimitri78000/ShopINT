@@ -1,4 +1,4 @@
-package package_webserver;
+package package_webserver_TP7;
 import package_shopping.*;
 
 import java.io.IOException;

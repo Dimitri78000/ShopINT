@@ -1,4 +1,4 @@
-package package_webserver;
+package package_webserver_TP7;
 
 import java.util.Collection;
 import java.util.LinkedList;

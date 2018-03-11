@@ -10,15 +10,19 @@ int ymax;
 	
 	public Magasin() {//met en place une liste de rayons définis
 		rayons = new LinkedList<Rayon>();
-		xmax=10;
-		ymax=10;
+		xmax=10; // xmax exclu, le magasin va de 0 à xmax-1
+		ymax=10; // xmax exclu, le magasin va de 0 à xmax-1
 		rayons.add(new Rayon("yaourt~~", 3, 3, 3, 9)); // Les noms des rayons doivent être de 8 caractères
-		rayons.add(new Rayon("fruits~~", 1,2,1,5 ));
+		rayons.add(new Rayon("lessive~", 1,2,1,5 ));
 		rayons.add(new Rayon("riz~~~~~",0,0,6,0));
-		rayons.add(new Rayon("tomate~~",9,1,9,2));
-		rayons.add(new Rayon("viande~~",5,5,9,5));
-		rayons.add(new Rayon("chewingu",8,8,8,8));
-		rayons.add(new Rayon("epices~~",7,7,8,7));
+		rayons.add(new Rayon("savon~~~",9,1,9,2));
+		rayons.add(new Rayon("viande~~",5,3,9,3));
+		rayons.add(new Rayon("chewingu",8,9,8,9));
+		rayons.add(new Rayon("epices~~",7,8,8,8));
+		rayons.add(new Rayon("epices~~",7,8,8,8));
+		
+		rayons.add(new Rayon("vetement",5,5,8,5));
+		rayons.add(new Rayon("vetement",5,6,8,6));
 	}
 	
 	/*public int[][] createDistanceMatrix() { //mise en place de la matrice avec des -1 pour tous les rayons

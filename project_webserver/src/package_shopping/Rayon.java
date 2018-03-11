@@ -31,7 +31,7 @@ public class Rayon { //definie les attributs du rayons
 			else if(x0==x1) {//rayon en ligne
 					res[x0][y0]="|" + produit +"¤";
 					for(int y=y0+1; y<y1;y++) {
-						res[x0][y]="¤========¤";
+						res[x0][y]="¤"+"========"+"¤";
 					}
 					res[x0][y1]="¤========|";
 			}

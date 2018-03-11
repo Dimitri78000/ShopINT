@@ -1,3 +1,5 @@
+package package_shopping;
+
 public class Rayon { //definie les attributs du rayons
 	private int x0; private int y0; //case du début du rayon
 	private int x1; private int y1;//case de la fin du rayon

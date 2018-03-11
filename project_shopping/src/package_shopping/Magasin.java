@@ -1,3 +1,5 @@
+package package_shopping;
+
 import java.util.Collection;
 import java.util.LinkedList;
 

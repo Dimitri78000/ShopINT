@@ -9,8 +9,8 @@ public class Main {
 	public static void main(String[] args) throws Exception 
 	{
 		System.out.println("Hello World Server!");
-		Magasin Carrefour = new Magasin();
-
+		
+		
 		int port = 4123;
 	    ServerSocket server = new ServerSocket(port);
 	    while(true) {

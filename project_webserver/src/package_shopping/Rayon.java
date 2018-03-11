@@ -20,7 +20,7 @@ public class Rayon { //definie les attributs du rayons
 		for(int y=y0; y<y1; y++)
 			res[x0][y] = -1;
 	}*/
-	public void addInDistanceMatrix(String[][] res) {
+	public String[][] addInDistanceMatrix(String[][] res) {
 		if (x0!=x1 && y0!=y1) {
             System.out.println("erreur de coordonées");
 		}
@@ -40,8 +40,9 @@ public class Rayon { //definie les attributs du rayons
 				for(int x=x0+1;x<x1;x++) {
 					res[x][y0]="|========|";
 				}
-				res[x1][y0]="|--------|";
+				res[x1][y0]="|========|";
 			}
 		}
+		return res;
 	}
 }

@@ -29,7 +29,12 @@ public class Server {
     out.println("HTTP/1.1 200 OK");
     out.println("");
     out.println("<html><body>");
-    out.println("Hello World interface utilisateur"); 
+    
+    
+    out.println("Hello World interface utilisateur <br/>"); 
+    Magasin Carrefour = new Magasin();
+	out.println(Carrefour.show());
+    
     
     System.out.println("Request " + location + " => " + tokens.length + " tokens");
     

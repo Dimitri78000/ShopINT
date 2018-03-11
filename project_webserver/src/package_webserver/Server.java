@@ -31,19 +31,18 @@ public class Server {
     out.println("<html><body>");
     
     
-    out.println("Hello World interface utilisateur <br/>"); 
+    out.println(" <a style=\"font-size: 24px;\"> ShopIT Carrefour Evry - Bienvenue ! </a> <br/> <br/> "); 
     Magasin Carrefour = new Magasin();
-	out.println(Carrefour.show());
     
     
     System.out.println("Request " + location + " => " + tokens.length + " tokens");
     
-   /* try {
+   // try {
       switch(tokens.length) {
       case 0: 
-        out.println(db.asHTML()); 
+        out.println(Carrefour.showAsHTML());
         break;
-      case 3:
+     /* case 3:
         String name = tokens[1];
         int year = Integer.parseInt(tokens[2]);
         Recommendations recommendations = db.lookup(name, year);
@@ -57,9 +56,11 @@ public class Server {
       }
     } catch(BadRequestException|FilmDoesNotExistsException e) {
       out.println(e.getMessage());
-      out.println("<p/><a href='/'>Back</a>");      
+      out.println("<p/><a href='/'>Back</a>");  
+      */  
+      default: out.println(tokens); break; 
     }
-    */
+    
     out.println("</body></html>");
     socket.close();
   }

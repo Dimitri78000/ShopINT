@@ -1,5 +1,5 @@
 <?php include('fichier_web/structure/header.php'); ?>
-<br/> <a> Partie recherche </a>
+ <a class="titre_partie"> <li>  Partie recherche </li> </a> <br/> 
 
 
 <?php include('fichier_web/structure/footer.php'); ?>

@@ -1,5 +1,4 @@
 <?php include('fichier_web/structure/header.php'); ?>
-<br/> <a> Bienvenue sur l'application ShopINT - Carrefour Evry ! </a>
-
+ <a class="titre_partie"> <li> Bienvenue sur l'application ShopINT - Carrefour Evry ! </li> </a> <br/> 
 
 <?php include('fichier_web/structure/footer.php'); ?>

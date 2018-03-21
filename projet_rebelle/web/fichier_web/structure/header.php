@@ -3,8 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<!-- Style -->
-		<link rel="stylesheet" href="fichier_style/style.css" />
+		<!-- Style ne fonctionne pas -->
+		<!-- <link rel="stylesheet" href="fichier_style/style.css" /> --> 
+		<!-- Le fichier style.css ne fonctionne pas, on utilise donc un fichier style.php -->
+		<?php include('fichier_style/style.php'); ?>
 		
 		<!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="57x57" href="contenu_multimedia/favicon/apple-icon-57x57.png">
@@ -32,10 +34,11 @@
 
 	<!-- Connexion à la base de donnée -->
 <?php
+session_start();
 try
 {
-	//$bdd = new PDO('mysql:host=localhost;dbname=b7_21575186_main_database;charset=utf8', 'root', '');
-	$bdd = new PDO('mysql:host=sql200.byethost.com;dbname=b7_21575186_main_database;charset=utf8', 'b7_21575186', 'AlDaHuLeLeLoTe');
+	$bdd = new PDO('mysql:host=localhost;dbname=b7_21575186_main_database;charset=utf8', 'root', '');
+	//$bdd = new PDO('mysql:host=sql200.byethost.com;dbname=b7_21575186_main_database;charset=utf8', 'b7_21575186', 'AlDaHuLeLeLoTe');
 }
 catch (Exception $e)
 {
@@ -47,7 +50,7 @@ catch (Exception $e)
 
 	<header>
 
-		<truc class="menu_header">
+		<center> <truc class="menu_header">
 			<a  class="onglet_header" href="index.php"> <img class="image_header" src="contenu_multimedia/image/header_image.jpg" /> </a> <a class="espace"> :) </a>              
 				<a class="onglet_header" href="connexion.php"> Connexion </a> <a class="espace"> :) </a>   
 				<a class="onglet_header" href="course.php"> Course </a> <a class="espace"> :) </a>               
@@ -67,25 +70,15 @@ catch (Exception $e)
 			}
 			.espace { color: rgba(0,0,0,0);}
 			.onglet_header { text-decoration: none; }
+
+
 			</style> 
 			<!-- STYLE FIN -->
 
-		</truc>  
+		</center></truc>  
  
 	</header> 
 
-<style>
-body{
-	font-size: 1.3em;
-}
-table
-{
-    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
-}
-td
-{
-    border: 2px solid black;
-    padding: 10px;
-}
-</style>
+
+
 

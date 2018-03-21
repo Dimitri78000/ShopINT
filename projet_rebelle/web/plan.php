@@ -1,13 +1,17 @@
 <?php include('fichier_web/structure/header.php'); ?>
-<br/> <a> Partie plan </a>
-<br/>
+
+ <a class="titre_partie"> <li> Partie plan </li> </a> <br/> 
+
 
 <div>
 	On travaille pour l'instant sur un petit magasin de taille 10*10 (celui du Google Drive "Magasin Test 10*10") <br/><br/>
 	<?php 
 
-	$matrice=Creer_et_rempli_matrice($bdd);
-	Afficher_matrice($matrice); 
+	$x_matrice=10;
+	$y_matrice=10;
+	$table="plan_petit_magasin_test";
+	$matrice=Creer_et_rempli_matrice($x_matrice,$y_matrice,$bdd,$table);
+	Afficher_matrice($x_matrice,$y_matrice,$matrice); 
 	?>
 
 </div>
@@ -20,19 +24,29 @@
 
 <p>
 	Partie modification du magasin : seulement pour les admins (partie Connexion à coder)
+	<fieldset class="fieldset_rayon">
+		<legend>Ajout Rayon</legend>
 <form class="formulaire_ajout_rayon" method="post" action="fichier_traitement/ajout_rayon_magasin.php">
    <p>
    		<label for="Nom_rayon_form" placeholder="moutarde" > Nom du rayon : </label> <input type="text" name="Nom_rayon_form" /> <br/>
-   		<label for="X0_form"  > Numéro abscisse (colonne) point 1 : <input type="number"  name="X0_form" min="0" max="9"  /> <br/>
-   		<label for="Y0_form" > Numéro ordonnée (ligne) point 1 :<input type="number" name="Y0_form" min="0" max="9"  /> <br/>
-   		<label for="X1_form"  > Numéro abscisse (colonne) point 2 :<input type="number" name="X1_form" min="0" max="9"  /> <br/>
-   		<label for="Y1_form"  > Numéro ordonnée (ligne) point 2 : <input type="number" name="Y1_form" min="0" max="9"  /> <br/>
-   			Les lignes et colonnes commencent à 0 ! <br/>
+   		<label for="X0_form"  > Numéro colonne X0 : <input type="number"  name="X0_form" min="0" max= <?php echo $x_matrice ; ?>  /> <br/>
+   		<label for="Y0_form" > Numéro ligne Y0 :<input type="number" name="Y0_form" min="0" max=<?php echo $x_matrice ; ?>  /> <br/>
+   		<label for="X1_form"  > Numéro colonne X1 :<input type="number" name="X1_form" min="0" max=<?php echo $x_matrice ; ?>  /> <br/>
+   		<label for="Y1_form"  > Numéro ligne Y1 : <input type="number" name="Y1_form" min="0" max=<?php echo $x_matrice ; ?>  /> <br/><br/>
    		<input type="submit" value="Envoyer" />
+	</p>
+	</form>
+   	</fieldset>
 
-   </p>
-</form>
-<style> .formulaire_ajout_rayon{ border: 2px black solid; border-radius: 4px; padding: 5px 20px 5px 20px; margin: 0px 20px 0px 20px; width:600px;} </style>
+<style> 
+.formulaire_ajout_rayon{  
+} 
+.fieldset_rayon{
+	max-width: 700px;
+	margin-left: auto;
+    margin-right: auto;
+}
+</style>
 
 </p>
 
@@ -51,14 +65,15 @@
 <?php
 
 
-function Afficher_matrice($matrice)
+function Afficher_matrice($x_matrice,$y_matrice,$matrice)
 {
 	?>
-	<table> <?php
-	for ($i=0;$i<10;$i++)
+	<div class="representation_magasin">
+	<table class="table_magasin"> <?php
+	for ($i=0;$i<=$y_matrice;$i++)
 	{
 		?> <tr> <?php
-		for($j=0;$j<10;$j++)
+		for($j=0;$j<=$x_matrice;$j++)
 		{
 			?> <td> <?php
 				echo $matrice[$i][$j];
@@ -69,26 +84,50 @@ function Afficher_matrice($matrice)
 	?>
 
 	</table>
-	<style>  </style> <!--Une partie du style est dans le style.css -->
+	</div>
+	
+	<style>
+	.table_magasin{
+		margin-left: auto;
+   		margin-right: auto;
+	}  
+	.representation_magasin{
+		max-width:950px;
+		max-height:750px;
+		height: 90%;
+		overflow: auto;
+	}
+	</style> 
 	<?php 
 }
 
 
 
 
-function Creer_et_rempli_matrice($bdd){
+function Creer_et_rempli_matrice($x_matrice,$y_matrice,$bdd,$table){
 
 	// Attention, matrice[ligne][colonne], ie colonne[y][x] si x est l'abscisse et y l'ordonnée
 
 	$matrice=array();
-	for($i=0;$i<10;$i++){
-		for($j=0;$j<10;$j++)
+	$matrice[0][0]="";
+	for($j=1;$j<=$y_matrice;$j++)
 		{
-			$matrice[$i][$j]="";
+			$matrice[0][$j]=" <strong> X=$j </strong>";
+		}
+	for($i=1;$i<=$x_matrice;$i++){
+
+		for($j=0;$j<=$x_matrice;$j++)
+		{
+			if ($j==0){
+				$matrice[$i][0]="<strong> Y=$i </strong> ";
+			}
+			else{
+				$matrice[$i][$j]="";
+			}
 		}
 	}
 
-	$reponse = $bdd->query('SELECT * FROM table_petit_magasin'); 
+	$reponse = $bdd->query('SELECT * FROM table_petit_magasin '); 
 	while ($donnees = $reponse->fetch())
 	{
 
@@ -103,7 +142,7 @@ function Creer_et_rempli_matrice($bdd){
 
 			if (($X0 == $X1 ) AND ($Y0 == $Y1) ) // Le rayon est un rayon d'une seule case
 			{
-				$matrice[$X0][$Y0]=$nom_rayon;
+				$matrice[$Y0][$X0]=$nom_rayon;
 			}
 			elseif ($X0 == $X1 ) // Le rayon est un rayon "horizontal"
 			{
